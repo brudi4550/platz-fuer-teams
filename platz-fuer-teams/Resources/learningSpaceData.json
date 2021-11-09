@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1001,
+        "name": "EG Tisch 3",
+        "occupied": false,
+        "building": "Science Park 2",
+        "nrOfSeats": 4,
+        "coordinates": {
+            "longitude": 48.335926,
+            "latitude": 14.322861
+        },
+        "imageName": "silversalmoncreek"
+    },
+    {
+        "id": 1002,
+        "name": "EG Tisch 3",
+        "occupied": false,
+        "building": "Science Park 2",
+        "nrOfSeats": 4,
+        "coordinates": {
+            "longitude": 48.335926,
+            "latitude": 14.322861
+        },
+        "imageName": "silversalmoncreek"
+    },
+    {
+        "id": 1003,
+        "name": "EG Tisch 3",
+        "occupied": false,
+        "building": "Science Park 2",
+        "nrOfSeats": 4,
+        "coordinates": {
+            "longitude": 48.335926,
+            "latitude": 14.322861
+        },
+        "imageName": "silversalmoncreek"
+    },
+    {
+        "id": 1004,
+        "name": "EG Tisch 3",
+        "occupied": false,
+        "building": "Science Park 2",
+        "nrOfSeats": 4,
+        "coordinates": {
+            "longitude": 48.335926,
+            "latitude": 14.322861
+        },
+        "imageName": "silversalmoncreek"
+    },
+    {
+        "id": 1005,
+        "name": "EG Tisch 3",
+        "occupied": false,
+        "building": "Science Park 2",
+        "nrOfSeats": 4,
+        "coordinates": {
+            "longitude": 48.335926,
+            "latitude": 14.322861
+        },
+        "imageName": "silversalmoncreek"
+    }
+]
