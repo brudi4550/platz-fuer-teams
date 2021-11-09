@@ -9,6 +9,9 @@ import SwiftUI
 
 struct DetailLearningSpace: View {
     var learningSpace: LearningSpace
+    @Binding var student: Student
+    @State private var from: Date = Date.now
+    @State private var to: Date = Date.now.addingTimeInterval(3600)
     
     var body: some View {
         ScrollView {
@@ -42,6 +45,21 @@ struct DetailLearningSpace: View {
                 } else {
                     Text("Lernplatz derzeit besetzt.")
                 }
+                DatePicker("Von wann",selection: $from)
+                    .labelsHidden()
+                DatePicker("Bis wann", selection: $to)
+                    .labelsHidden()
+                HStack (alignment: .center){
+                    Spacer()
+                    Button("Buchen") {
+                        
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.accentColor)
+                    .cornerRadius(8)
+                    Spacer()
+                }
             }
             .padding()
             .navigationTitle(learningSpace.name)
@@ -52,7 +70,8 @@ struct DetailLearningSpace: View {
 }
 
 struct DetailLearningSpace_Previews: PreviewProvider {
+    @State static private var student = Student(bookings: [])
     static var previews: some View {
-        DetailLearningSpace(learningSpace: learningSpaces[0])
+        DetailLearningSpace(learningSpace: learningSpaces[0], student: $student)
     }
 }

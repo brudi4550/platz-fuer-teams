@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var name: String = "Benutzername"
-    @State private var password: String = "Passwort"
+    @State private var name: String = ""
+    @State private var password: String = ""
     @State private var signedIn: Bool = false
+    @State private var student: Student = Student(bookings: [])
     
     var body: some View {
         if !signedIn {
@@ -20,10 +21,10 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fit)
                     .scaleEffect(0.9)
                 Text("Platz für Teams").font(.headline)
-                TextField("namePlaceholder", text: $name)
+                TextField("Benutzername", text: $name)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal, 20.0)
-                SecureField("passwordPlaceholder", text: $password)
+                SecureField("Passwort", text: $password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal, 20.0)
                 Button("LOGIN") {
@@ -37,9 +38,33 @@ struct ContentView: View {
             .padding(.bottom, 100.0)
         } else {
             NavigationView {
-                ListLearningSpaces()
+                VStack {
+                    List {
+                        NavigationLink {
+                            ListLearningSpaces(student: $student)
+                        } label: {
+                            Text("Lernplatz buchen")
+                        }
+                        NavigationLink {
+                            Text("test2")
+                        } label: {
+                            Text("Gebuchte Lernplätze anzeigen")
+                        }
+                        NavigationLink {
+                            Text("test3")
+                        } label: {
+                            Text("Buchungen löschen")
+                        }
+                    }
+                    HStack() {
+                        Text("Willkommen zurück, \(name)!")
+                            .font(.body)
+                    }
+                    Divider()
+                    Text("Version 1.0.4")
+                        .font(.footnote)
+                }.navigationTitle("Startseite")
             }
-            .navigationTitle("Willkommen zurück")
         }
     }
 }

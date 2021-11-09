@@ -15,8 +15,16 @@ struct RowLearningSpace: View {
             learningSpace.image
                 .resizable()
                 .frame(width: 50, height: 50)
-            Text("\(learningSpace.name)")
-
+                .cornerRadius(10)
+            VStack (alignment: .leading) {
+                Text("\(learningSpace.name)")
+                HStack {
+                    Text("\(learningSpace.building)")
+                        .font(.footnote)
+                    Text("ID: \(learningSpace.id)")
+                        .font(.footnote)
+                }
+            }
             Spacer()
         }
     }
