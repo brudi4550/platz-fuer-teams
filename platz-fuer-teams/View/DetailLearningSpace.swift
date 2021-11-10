@@ -12,10 +12,11 @@ struct DetailLearningSpace: View {
     @Binding var student: Student
     @State private var from: Date = Date.now
     @State private var to: Date = Date.now.addingTimeInterval(3600)
+    @State private var showingAlert: Bool = false
     
     var body: some View {
         ScrollView {
-            MapView(coordinate: learningSpace.locationCoordinate)
+            MapView(place: Place(coordinate: learningSpace.locationCoordinate))
                 .ignoresSafeArea(edges: .top)
                 .frame(height: 300)
 
@@ -36,23 +37,35 @@ struct DetailLearningSpace: View {
                 .foregroundColor(.secondary)
 
                 Divider()
-
-                Text("Weitere Informationen")
-                    .font(.title2)
-                Text("Anzahl an Sitzplätzen: \(learningSpace.nrOfSeats)")
-                if !learningSpace.occupied {
-                    Text("Lernplatz derzeit frei.")
-                } else {
-                    Text("Lernplatz derzeit besetzt.")
+                Group {
+                    Text("Weitere Informationen")
+                        .font(.title2)
+                    Text("Anzahl an Sitzplätzen: \(learningSpace.nrOfSeats)")
+                    if !learningSpace.occupied {
+                        Text("Lernplatz derzeit frei.")
+                    } else {
+                        Text("Lernplatz derzeit besetzt.")
+                    }
+                    Divider()
+                    HStack (alignment: .center) {
+                        Text("Von:")
+                        DatePicker("Von wann",selection: $from)
+                            .labelsHidden()
+                    }
+                    HStack (alignment: .center) {
+                        Text("Bis:")
+                        DatePicker("Bis wann", selection: $to)
+                            .labelsHidden()
+                    }
                 }
-                DatePicker("Von wann",selection: $from)
-                    .labelsHidden()
-                DatePicker("Bis wann", selection: $to)
-                    .labelsHidden()
-                HStack (alignment: .center){
+                HStack (alignment: .center) {
                     Spacer()
                     Button("Buchen") {
-                        
+                        let booking = Booking(learningSpace: learningSpace, from: from, to: to)
+                        student.addBooking(booking: booking)
+                        showingAlert = true
+                    }.alert("Lernplatz erfolgreich gebucht!", isPresented: $showingAlert) {
+                        Button("OK", role: .cancel) {}
                     }
                     .foregroundColor(.white)
                     .padding()

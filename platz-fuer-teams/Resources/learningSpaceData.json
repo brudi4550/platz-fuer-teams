@@ -6,8 +6,8 @@
         "building": "Science Park 2",
         "nrOfSeats": 4,
         "coordinates": {
-            "longitude": 48.335926,
-            "latitude": 14.322861
+            "longitude": 14.323077,
+            "latitude": 48.336023
         },
         "imageName": "silversalmoncreek"
     },
@@ -18,8 +18,8 @@
         "building": "Science Park 1",
         "nrOfSeats": 6,
         "coordinates": {
-            "longitude": 48.335926,
-            "latitude": 14.322861
+            "longitude": 14.323077,
+            "latitude": 48.336023
         },
         "imageName": "silversalmoncreek"
     },
@@ -30,8 +30,8 @@
         "building": "Science Park 2",
         "nrOfSeats": 5,
         "coordinates": {
-            "longitude": 48.335926,
-            "latitude": 14.322861
+            "longitude": 14.323077,
+            "latitude": 48.336023
         },
         "imageName": "silversalmoncreek"
     },
@@ -42,8 +42,8 @@
         "building": "Science Park 3",
         "nrOfSeats": 3,
         "coordinates": {
-            "longitude": 48.335926,
-            "latitude": 14.322861
+            "longitude": 14.323077,
+            "latitude": 48.336023
         },
         "imageName": "silversalmoncreek"
     },
@@ -54,8 +54,8 @@
         "building": "Science Park 2",
         "nrOfSeats": 4,
         "coordinates": {
-            "longitude": 48.335926,
-            "latitude": 14.322861
+            "longitude": 14.323077,
+            "latitude": 48.336023
         },
         "imageName": "silversalmoncreek"
     }

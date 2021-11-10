@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Booking {
+struct Booking: Hashable {
     var learningSpace: LearningSpace
     var from: Date
     var to: Date

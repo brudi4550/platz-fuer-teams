@@ -9,4 +9,8 @@ import Foundation
 
 struct Student {
     var bookings: [Booking]
+    
+    mutating func addBooking(booking: Booking) -> () {
+        bookings.append(booking)
+    }
 }
