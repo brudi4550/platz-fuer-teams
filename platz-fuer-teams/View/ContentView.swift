@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct ContentView: View {
     @State private var name: String = ""
@@ -14,21 +13,18 @@ struct ContentView: View {
     @State private var signedIn: Bool = false
     @State private var student: Student = Student(bookings: [])
     @State private var wrongCredentials: Bool = false
-    let startColor = Color.init(hue: 1.4, saturation: 0.8, brightness: 1.0)
-    let endColor = Color.init(hue: 49, saturation: 0.8, brightness: 1.0)
+    let startColor = Color.init(hue: 100, saturation: 0.73, brightness: 0.93)
+    let endColor = Color.init(hue: 218, saturation: 0.84, brightness: 0.7)
     
     var body: some View {
         if !signedIn {
             ZStack {
-                LinearGradient(colors: [startColor, endColor], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+                LinearGradient(colors: [Color.init(red: 0, green: 0.4, blue: 0.93), Color.init(red: 0, green: 0.6, blue: 1)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
                 VStack {
-                    Image("JKU_logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .scaleEffect(0.9)
-                    Text("Platz für Teams").font(.headline)
+                    Text("Platz für Teams").font(.largeTitle)
+                    Text("$Logo").font(.largeTitle)
                     TextField("Benutzername", text: $name)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.horizontal, 20.0)
                     SecureField("Passwort", text: $password)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -46,10 +42,15 @@ struct ContentView: View {
                     }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.accentColor)
+                    .background(Color.black)
                     .cornerRadius(8)
+                    Image("JKU_logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .scaleEffect(0.9)
+                        .padding(.top, 50)
                 }
-                .padding(.bottom, 100.0)
+                .padding()
             }
         } else {
             NavigationView {

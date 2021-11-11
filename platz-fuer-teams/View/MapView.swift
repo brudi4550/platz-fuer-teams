@@ -19,13 +19,15 @@ struct Place: Identifiable {
 
 struct MapView: View {
     var place: Place
+    @StateObject private var viewModel: ContentViewModel = ContentViewModel()
     @State private var region = MKCoordinateRegion()
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: [place]) { place in
-            MapPin(coordinate: place.coordinate)
-        }
+        Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, userTrackingMode: .constant(.none), annotationItems: [place], annotationContent: { location in
+            MapPin(coordinate: place.coordinate, tint: .red)
+        })
         .onAppear() {
+            viewModel.checkIfLocationServicesIsEnabled()
             setRegion(place.coordinate)
         }
     }
@@ -35,6 +37,44 @@ struct MapView: View {
                 center: coordinate,
                 span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
             )
+    }
+}
+
+final class ContentViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+    
+    var locationManager: CLLocationManager?
+    
+    func checkIfLocationServicesIsEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            checkLocationAuthorization()
+            locationManager!.delegate = self
+        } else {
+            print("Ortungsdienste deaktiviert.")
+        }
+    }
+    
+    private func checkLocationAuthorization() {
+        guard let locationManager = locationManager else {
+            return
+        }
+        switch locationManager.authorizationStatus {
+            
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            print("Ortungsdienste deaktiviert.")
+        case .denied:
+            print("Ortungsdienste können in den Einstellungen aktiviert werden.")
+        case .authorizedAlways, .authorizedWhenInUse:
+            break
+        @unknown default:
+            break
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkIfLocationServicesIsEnabled()
     }
 }
 

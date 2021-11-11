@@ -12,7 +12,9 @@ struct DetailLearningSpace: View {
     @Binding var student: Student
     @State private var from: Date = Date.now
     @State private var to: Date = Date.now.addingTimeInterval(3600)
-    @State private var showingAlert: Bool = false
+    @State private var showingSuccessfulAlert: Bool = false
+    @State private var showingImpossibleTimeAlert: Bool = false
+    @State private var showingOverlapAlert: Bool = false
     
     var body: some View {
         ScrollView {
@@ -61,15 +63,32 @@ struct DetailLearningSpace: View {
                 HStack (alignment: .center) {
                     Spacer()
                     Button("Buchen") {
-                        let booking = Booking(learningSpace: learningSpace, from: from, to: to)
-                        student.addBooking(booking: booking)
-                        showingAlert = true
-                    }.alert("Lernplatz erfolgreich gebucht!", isPresented: $showingAlert) {
+                        var failed = false
+                        for otherBooking in student.bookings {
+                            if from < otherBooking.to && otherBooking.from < to {
+                                showingOverlapAlert = true
+                                failed = true
+                            }
+                        }
+                        if from > to {
+                            showingImpossibleTimeAlert = true
+                            failed = true
+                        }
+                        if !failed {
+                            let booking = Booking(learningSpace: learningSpace, from: from, to: to)
+                            student.addBooking(booking: booking)
+                            showingSuccessfulAlert = true
+                        }
+                    }.alert("Lernplatz erfolgreich gebucht!", isPresented: $showingSuccessfulAlert) {
+                        Button("OK", role: .cancel) {}
+                    }.alert("Buchung überschneidet sich mit einer anderen Buchung.", isPresented: $showingOverlapAlert) {
+                        Button("OK", role: .cancel) {}
+                    }.alert("Startzeitpunkt muss vor Endzeitpunkt liegen.", isPresented: $showingImpossibleTimeAlert) {
                         Button("OK", role: .cancel) {}
                     }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.accentColor)
+                    .background(Color.blue)
                     .cornerRadius(8)
                     Spacer()
                 }

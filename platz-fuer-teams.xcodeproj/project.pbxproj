@@ -15,17 +15,7 @@
 		FA1AA72B273AEA9D00F97169 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA72A273AEA9D00F97169 /* Student.swift */; };
 		FA1AA72D273AEAD600F97169 /* LearningSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA72C273AEAD600F97169 /* LearningSpace.swift */; };
 		FA1AA72F273AEB5A00F97169 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA72E273AEB5A00F97169 /* Booking.swift */; };
-		FA1AA742273AEEB600F97169 /* umbagog@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA735273AEEB600F97169 /* umbagog@2x.jpg */; };
-		FA1AA743273AEEB600F97169 /* twinlake@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA736273AEEB600F97169 /* twinlake@2x.jpg */; };
-		FA1AA744273AEEB600F97169 /* chincoteague@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA737273AEEB600F97169 /* chincoteague@2x.jpg */; };
-		FA1AA745273AEEB600F97169 /* lakemcdonald@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA738273AEEB600F97169 /* lakemcdonald@2x.jpg */; };
 		FA1AA746273AEEB600F97169 /* silversalmoncreek@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA739273AEEB600F97169 /* silversalmoncreek@2x.jpg */; };
-		FA1AA747273AEEB600F97169 /* icybay@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA73A273AEEB600F97169 /* icybay@2x.jpg */; };
-		FA1AA748273AEEB600F97169 /* hiddenlake@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA73B273AEEB600F97169 /* hiddenlake@2x.jpg */; };
-		FA1AA749273AEEB600F97169 /* chilkoottrail@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA73C273AEEB600F97169 /* chilkoottrail@2x.jpg */; };
-		FA1AA74A273AEEB600F97169 /* stmarylake@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA73D273AEEB600F97169 /* stmarylake@2x.jpg */; };
-		FA1AA74B273AEEB600F97169 /* charleyrivers@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA73E273AEEB600F97169 /* charleyrivers@2x.jpg */; };
-		FA1AA74C273AEEB600F97169 /* rainbowlake@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA73F273AEEB600F97169 /* rainbowlake@2x.jpg */; };
 		FA1AA74D273AEEB600F97169 /* learningSpaceData.json in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA740273AEEB600F97169 /* learningSpaceData.json */; };
 		FA1AA74F273AF02700F97169 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA74E273AF02700F97169 /* ModelData.swift */; };
 		FA1AA751273AFD0200F97169 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA750273AFD0200F97169 /* CircleImage.swift */; };
@@ -46,17 +36,7 @@
 		FA1AA72A273AEA9D00F97169 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		FA1AA72C273AEAD600F97169 /* LearningSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningSpace.swift; sourceTree = "<group>"; };
 		FA1AA72E273AEB5A00F97169 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
-		FA1AA735273AEEB600F97169 /* umbagog@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "umbagog@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA736273AEEB600F97169 /* twinlake@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "twinlake@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA737273AEEB600F97169 /* chincoteague@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "chincoteague@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA738273AEEB600F97169 /* lakemcdonald@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "lakemcdonald@2x.jpg"; sourceTree = "<group>"; };
 		FA1AA739273AEEB600F97169 /* silversalmoncreek@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "silversalmoncreek@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA73A273AEEB600F97169 /* icybay@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icybay@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA73B273AEEB600F97169 /* hiddenlake@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hiddenlake@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA73C273AEEB600F97169 /* chilkoottrail@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "chilkoottrail@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA73D273AEEB600F97169 /* stmarylake@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "stmarylake@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA73E273AEEB600F97169 /* charleyrivers@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "charleyrivers@2x.jpg"; sourceTree = "<group>"; };
-		FA1AA73F273AEEB600F97169 /* rainbowlake@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rainbowlake@2x.jpg"; sourceTree = "<group>"; };
 		FA1AA740273AEEB600F97169 /* learningSpaceData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = learningSpaceData.json; sourceTree = "<group>"; };
 		FA1AA74E273AF02700F97169 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		FA1AA750273AFD0200F97169 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
@@ -153,17 +133,7 @@
 		FA1AA734273AEEB600F97169 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				FA1AA735273AEEB600F97169 /* umbagog@2x.jpg */,
-				FA1AA736273AEEB600F97169 /* twinlake@2x.jpg */,
-				FA1AA737273AEEB600F97169 /* chincoteague@2x.jpg */,
-				FA1AA738273AEEB600F97169 /* lakemcdonald@2x.jpg */,
 				FA1AA739273AEEB600F97169 /* silversalmoncreek@2x.jpg */,
-				FA1AA73A273AEEB600F97169 /* icybay@2x.jpg */,
-				FA1AA73B273AEEB600F97169 /* hiddenlake@2x.jpg */,
-				FA1AA73C273AEEB600F97169 /* chilkoottrail@2x.jpg */,
-				FA1AA73D273AEEB600F97169 /* stmarylake@2x.jpg */,
-				FA1AA73E273AEEB600F97169 /* charleyrivers@2x.jpg */,
-				FA1AA73F273AEEB600F97169 /* rainbowlake@2x.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -226,20 +196,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1AA74B273AEEB600F97169 /* charleyrivers@2x.jpg in Resources */,
-				FA1AA748273AEEB600F97169 /* hiddenlake@2x.jpg in Resources */,
-				FA1AA742273AEEB600F97169 /* umbagog@2x.jpg in Resources */,
-				FA1AA74C273AEEB600F97169 /* rainbowlake@2x.jpg in Resources */,
-				FA1AA747273AEEB600F97169 /* icybay@2x.jpg in Resources */,
 				FA1AA746273AEEB600F97169 /* silversalmoncreek@2x.jpg in Resources */,
 				3EE60041272CDC450038691C /* Preview Assets.xcassets in Resources */,
 				FA1AA74D273AEEB600F97169 /* learningSpaceData.json in Resources */,
-				FA1AA743273AEEB600F97169 /* twinlake@2x.jpg in Resources */,
-				FA1AA74A273AEEB600F97169 /* stmarylake@2x.jpg in Resources */,
-				FA1AA745273AEEB600F97169 /* lakemcdonald@2x.jpg in Resources */,
-				FA1AA749273AEEB600F97169 /* chilkoottrail@2x.jpg in Resources */,
 				3EE6003E272CDC450038691C /* Assets.xcassets in Resources */,
-				FA1AA744273AEEB600F97169 /* chincoteague@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +356,7 @@
 				DEVELOPMENT_TEAM = 38B943C8RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Diese App braucht deinen Standort um diesen auf der Karte anzuzeigen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -425,6 +386,7 @@
 				DEVELOPMENT_TEAM = 38B943C8RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Diese App braucht deinen Standort um diesen auf der Karte anzuzeigen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -1,62 +1,122 @@
 [
     {
         "id": 43,
-        "name": "EG Tisch 3",
+        "name": "1. Stock Tisch 3",
         "occupied": false,
-        "building": "Science Park 2",
-        "nrOfSeats": 4,
+        "building": "Science Park 1",
+        "nrOfSeats": 8,
         "coordinates": {
-            "longitude": 14.323077,
-            "latitude": 48.336023
+            "longitude": 14.32264,
+            "latitude": 48.33589
         },
-        "imageName": "silversalmoncreek"
+        "imageName": "sciencepark1_1"
     },
     {
         "id": 15,
         "name": "1. Stock Tisch 5",
         "occupied": false,
         "building": "Science Park 1",
-        "nrOfSeats": 6,
+        "nrOfSeats": 8,
         "coordinates": {
             "longitude": 14.323077,
             "latitude": 48.336023
         },
-        "imageName": "silversalmoncreek"
+        "imageName": "sciencepark1_2"
     },
     {
         "id": 25,
-        "name": "3. Stock Tisch 10",
+        "name": "EG Tisch 1",
         "occupied": false,
-        "building": "Science Park 2",
-        "nrOfSeats": 5,
+        "building": "Science Park 1",
+        "nrOfSeats": 16,
         "coordinates": {
-            "longitude": 14.323077,
-            "latitude": 48.336023
+            "longitude": 14.32350,
+            "latitude": 48.33563
         },
-        "imageName": "silversalmoncreek"
+        "imageName": "sciencepark2_1"
     },
     {
         "id": 110,
-        "name": "EG Tisch 2",
+        "name": "EG Tisch 3",
+        "occupied": false,
+        "building": "Science Park 2",
+        "nrOfSeats": 1,
+        "coordinates": {
+            "longitude": 14.32350,
+            "latitude": 48.33563
+        },
+        "imageName": "sciencepark2_2"
+    },
+    {
+        "id": 87,
+        "name": "EG Tisch 4",
+        "occupied": false,
+        "building": "Science Park 3",
+        "nrOfSeats": 6,
+        "coordinates": {
+            "longitude": 14.32411,
+            "latitude": 48.33528
+        },
+        "imageName": "sciencepark3_1"
+    },
+    {
+        "id": 157,
+        "name": "EG Tisch 6",
         "occupied": false,
         "building": "Science Park 3",
         "nrOfSeats": 3,
         "coordinates": {
-            "longitude": 14.323077,
-            "latitude": 48.336023
+            "longitude": 14.32414,
+            "latitude": 48.33524
         },
-        "imageName": "silversalmoncreek"
+        "imageName": "sciencepark3_2"
     },
     {
-        "id": 87,
+        "id": 49,
+        "name": "EG Tisch 2",
+        "occupied": false,
+        "building": "Science Park 3",
+        "nrOfSeats": 9,
+        "coordinates": {
+            "longitude": 14.32412,
+            "latitude": 48.33525
+        },
+        "imageName": "sciencepark3_3"
+    },
+    {
+        "id": 35,
         "name": "2. Stock Tisch 1",
         "occupied": false,
-        "building": "Science Park 2",
-        "nrOfSeats": 4,
+        "building": "Bankengebäude",
+        "nrOfSeats": 1,
         "coordinates": {
-            "longitude": 14.323077,
-            "latitude": 48.336023
+            "longitude": 14.31716,
+            "latitude": 48.33721
         },
-        "imageName": "silversalmoncreek"
+        "imageName": "bankgebaeude_1"
+    },
+    {
+        "id": 20,
+        "name": "EG Tisch 1",
+        "occupied": false,
+        "building": "Bankengebäude",
+        "nrOfSeats": 3,
+        "coordinates": {
+            "longitude": 14.31705,
+            "latitude": 48.33726
+        },
+        "imageName": "bankgebaeude_2"
+    },
+    {
+        "id": 13,
+        "name": "1. Stock Tisch 2",
+        "occupied": false,
+        "building": "Bankengebäude",
+        "nrOfSeats": 10,
+        "coordinates": {
+            "longitude": 14.31725,
+            "latitude": 48.33715
+        },
+        "imageName": "bankgebaeude_3"
     }
 ]
