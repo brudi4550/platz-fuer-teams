@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3EE60036272CDC420038691C /* Platz für Teams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Platz für Teams.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EE60036272CDC420038691C /* platz-fuer-teams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "platz-fuer-teams.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE60039272CDC420038691C /* platz_fuer_teamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = platz_fuer_teamsApp.swift; sourceTree = "<group>"; };
 		3EE6003B272CDC420038691C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EE6003D272CDC450038691C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		3EE60037272CDC420038691C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3EE60036272CDC420038691C /* Platz für Teams.app */,
+				3EE60036272CDC420038691C /* platz-fuer-teams.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,9 +141,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3EE60035272CDC420038691C /* platz-fuer-teams */ = {
+		3EE60035272CDC420038691C /* Platz für Teams */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3EE60044272CDC450038691C /* Build configuration list for PBXNativeTarget "platz-fuer-teams" */;
+			buildConfigurationList = 3EE60044272CDC450038691C /* Build configuration list for PBXNativeTarget "Platz für Teams" */;
 			buildPhases = (
 				3EE60032272CDC420038691C /* Sources */,
 				3EE60033272CDC420038691C /* Frameworks */,
@@ -153,9 +153,9 @@
 			);
 			dependencies = (
 			);
-			name = "platz-fuer-teams";
+			name = "Platz für Teams";
 			productName = "platz-fuer-teams";
-			productReference = 3EE60036272CDC420038691C /* Platz für Teams.app */;
+			productReference = 3EE60036272CDC420038691C /* platz-fuer-teams.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +173,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3EE60031272CDC420038691C /* Build configuration list for PBXProject "platz-fuer-teams" */;
+			buildConfigurationList = 3EE60031272CDC420038691C /* Build configuration list for PBXProject "Platz für Teams" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -186,7 +186,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3EE60035272CDC420038691C /* platz-fuer-teams */,
+				3EE60035272CDC420038691C /* Platz für Teams */,
 			);
 		};
 /* End PBXProject section */
@@ -356,6 +356,7 @@
 				DEVELOPMENT_TEAM = 38B943C8RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Platz für Teams";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Diese App braucht deinen Standort um diesen auf der Karte anzuzeigen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -368,7 +369,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "wolf.alex.platz-fuer-teams";
-				PRODUCT_NAME = "Platz für Teams";
+				PRODUCT_NAME = "platz-fuer-teams";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -386,6 +387,7 @@
 				DEVELOPMENT_TEAM = 38B943C8RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Platz für Teams";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Diese App braucht deinen Standort um diesen auf der Karte anzuzeigen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -398,7 +400,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "wolf.alex.platz-fuer-teams";
-				PRODUCT_NAME = "Platz für Teams";
+				PRODUCT_NAME = "platz-fuer-teams";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -408,7 +410,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3EE60031272CDC420038691C /* Build configuration list for PBXProject "platz-fuer-teams" */ = {
+		3EE60031272CDC420038691C /* Build configuration list for PBXProject "Platz für Teams" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EE60042272CDC450038691C /* Debug */,
@@ -417,7 +419,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EE60044272CDC450038691C /* Build configuration list for PBXNativeTarget "platz-fuer-teams" */ = {
+		3EE60044272CDC450038691C /* Build configuration list for PBXNativeTarget "Platz für Teams" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EE60045272CDC450038691C /* Debug */,
