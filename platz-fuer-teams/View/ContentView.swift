@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     @State private var name: String = ""
@@ -13,6 +14,7 @@ struct ContentView: View {
     @State private var signedIn: Bool = false
     @State private var student: Student = Student(bookings: [])
     @State private var wrongCredentials: Bool = false
+    @State private var allowNotifications: Bool = false
     let startColor = Color.init(hue: 100, saturation: 0.73, brightness: 0.93)
     let endColor = Color.init(hue: 218, saturation: 0.84, brightness: 0.7)
     
@@ -79,6 +81,35 @@ struct ContentView: View {
                             } label: {
                                 Text("Informationen")
                             }
+                        }
+                        Group {
+                            Toggle("Push-Benachrichtigungen erlauben", isOn: $allowNotifications)
+                                .onChange(of: allowNotifications) { _allowNotifications in
+                                    if !_allowNotifications {
+                                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                                    } else {
+                                        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                                            if success {
+                                                for booking in student.bookings {
+                                                    let content = UNMutableNotificationContent()
+                                                    content.title = "Platz für Teams"
+                                                    content.subtitle = "Reservierungserinnerung"
+                                                    content.body = "Deine Buchung des Lernplatzes \(booking.learningSpace.name) im Gebäude \(booking.learningSpace.building) startet in 5 Minuten."
+                                                    content.sound = UNNotificationSound.default
+                                                    let notificationMoment = booking.from - 5 * 60
+                                                    let calenderDate = Calendar.current.dateComponents([.day, .year, .month, .hour, .minute, .second], from: notificationMoment)
+                                                    let trigger = UNCalendarNotificationTrigger(dateMatching: calenderDate, repeats: false)
+
+                                                    let request = UNNotificationRequest(identifier: booking.learningSpace.UUID, content: content, trigger: trigger)
+
+                                                    UNUserNotificationCenter.current().add(request)
+                                                }
+                                            } else if let error = error {
+                                                print(error.localizedDescription)
+                                            }
+                                        }
+                                    }
+                                }
                         }
                     }
                     HStack() {

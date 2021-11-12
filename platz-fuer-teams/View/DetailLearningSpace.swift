@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct DetailLearningSpace: View {
     var learningSpace: LearningSpace
@@ -78,6 +79,18 @@ struct DetailLearningSpace: View {
                             let booking = Booking(learningSpace: learningSpace, from: from, to: to)
                             student.addBooking(booking: booking)
                             showingSuccessfulAlert = true
+                            let content = UNMutableNotificationContent()
+                            content.title = "Platz für Teams"
+                            content.subtitle = "Reservierungserinnerung"
+                            content.body = "Deine Buchung des Lernplatzes \(learningSpace.name) im Gebäude \(learningSpace.building) startet in 5 Minuten."
+                            content.sound = UNNotificationSound.default
+                            let notificationMoment = from - 5 * 60
+                            let calenderDate = Calendar.current.dateComponents([.day, .year, .month, .hour, .minute, .second], from: notificationMoment)
+                            let trigger = UNCalendarNotificationTrigger(dateMatching: calenderDate, repeats: false)
+
+                            let request = UNNotificationRequest(identifier: learningSpace.UUID, content: content, trigger: trigger)
+
+                            UNUserNotificationCenter.current().add(request)
                         }
                     }.alert("Lernplatz erfolgreich gebucht!", isPresented: $showingSuccessfulAlert) {
                         Button("OK", role: .cancel) {}

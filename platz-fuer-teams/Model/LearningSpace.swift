@@ -10,6 +10,7 @@ import SwiftUI
 import CoreLocation
 
 struct LearningSpace: Hashable, Codable, Identifiable {
+    var UUID: String
     var id: Int
     var name: String
     var occupied: Bool

@@ -21,8 +21,10 @@ struct ListLearningSpaces: View {
                         ForEach(1 ..< 21) {
                             if $0 == 1 {
                                 Text("\($0) Sitzplatz")
+                                    .font(.headline)
                             } else {
                                 Text("\($0) Sitzplätze")
+                                    .font(.headline)
                             }
                         }
                     }
@@ -41,17 +43,26 @@ struct ListLearningSpaces: View {
     }
     
     var searchResults: [LearningSpace] {
-            if searchText.isEmpty {
-                return learningSpaces.filter {
-                    $0.nrOfSeats >= minSpaces
-                }.sorted(by: {$0.building < $1.building})
-            } else {
-                let nameFiltered = learningSpaces.filter { $0.building.contains(searchText) }
-                return nameFiltered.filter {
-                    $0.nrOfSeats >= minSpaces
-                }.sorted(by: {$0.building < $1.building})
+        var currentlyFree = learningSpaces
+        currentlyFree = currentlyFree.filter() {
+            for booking in student.bookings {
+                if $0 == booking.learningSpace && Date.now > booking.from && Date.now < booking.to {
+                    return false
+                }
             }
+            return true;
         }
+        if searchText.isEmpty {
+            return currentlyFree.filter {
+                $0.nrOfSeats >= minSpaces
+            }.sorted(by: {$0.building < $1.building})
+        } else {
+            let nameFiltered = currentlyFree.filter { $0.building.contains(searchText) }
+            return nameFiltered.filter {
+                $0.nrOfSeats >= minSpaces
+            }.sorted(by: {$0.building < $1.building})
+        }
+    }
 }
 
 struct ListLearningSpaces_Previews: PreviewProvider {
