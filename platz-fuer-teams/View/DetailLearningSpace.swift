@@ -16,6 +16,7 @@ struct DetailLearningSpace: View {
     @State private var showingSuccessfulAlert: Bool = false
     @State private var showingImpossibleTimeAlert: Bool = false
     @State private var showingOverlapAlert: Bool = false
+    @State private var showingBookingIsInPastAlert: Bool = false
     
     var body: some View {
         ScrollView {
@@ -74,6 +75,9 @@ struct DetailLearningSpace: View {
                         if from > to {
                             showingImpossibleTimeAlert = true
                             failed = true
+                        } else if from < Date.now || to < Date.now {
+                            showingBookingIsInPastAlert = true
+                            failed = true
                         }
                         if !failed {
                             let booking = Booking(learningSpace: learningSpace, from: from, to: to)
@@ -97,6 +101,8 @@ struct DetailLearningSpace: View {
                     }.alert("Buchung überschneidet sich mit einer anderen Buchung.", isPresented: $showingOverlapAlert) {
                         Button("OK", role: .cancel) {}
                     }.alert("Startzeitpunkt muss vor Endzeitpunkt liegen.", isPresented: $showingImpossibleTimeAlert) {
+                        Button("OK", role: .cancel) {}
+                    }.alert("Lernplätze können nicht verspätet gebucht werden.", isPresented: $showingBookingIsInPastAlert) {
                         Button("OK", role: .cancel) {}
                     }
                     .foregroundColor(.white)

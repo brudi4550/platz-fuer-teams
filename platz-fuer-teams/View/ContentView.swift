@@ -11,28 +11,43 @@ import UserNotifications
 struct ContentView: View {
     @State private var name: String = ""
     @State private var password: String = ""
+    @FocusState private var focusedField: Field?
     @State private var signedIn: Bool = false
     @State private var student: Student = Student(bookings: [])
     @State private var wrongCredentials: Bool = false
     @State private var allowNotifications: Bool = false
-    let startColor = Color.init(hue: 100, saturation: 0.73, brightness: 0.93)
-    let endColor = Color.init(hue: 218, saturation: 0.84, brightness: 0.7)
     
     var body: some View {
         if !signedIn {
             ZStack {
                 LinearGradient(colors: [Color.init(red: 0, green: 0.4, blue: 0.93), Color.init(red: 0, green: 0.6, blue: 1)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
                 VStack {
-                    Text("Platz für Teams").font(.largeTitle)
-                    Text("$Logo").font(.largeTitle)
-                    TextField("Benutzername", text: $name)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Text("Platz für Teams")
+                        .font(.system(size: 40, weight: .bold))
+                        .foregroundColor(Color.black)
+                    VStack {
+                        TextField("Benutzername", text: $name)
+                            .textFieldStyle(.roundedBorder)
                             .padding(.horizontal, 20.0)
-                    SecureField("Passwort", text: $password)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .focused($focusedField, equals: .name)
+                        SecureField("Passwort", text: $password)
+                            .textFieldStyle(.roundedBorder)
                             .padding(.horizontal, 20.0)
+                            .focused($focusedField, equals: .password)
+                    }.toolbar {
+                        ToolbarItem(placement: .keyboard) {
+                            Button(action: focusPreviousField) {
+                                Image(systemName: "chevron.up")
+                            }
+                        }
+                        ToolbarItem(placement: .keyboard) {
+                            Button(action: focusNextField) {
+                                Image(systemName: "chevron.down")
+                            }
+                        }
+                    }
                     Button("LOGIN") {
-                        if matches(string: name, regex: "[Kk][0-9]{8}|[Aa][Kk][0-9]{8}") {
+                        if matches(string: name, regex: "[Kk][0-9]{8}|[Aa][Kk][0-9]{8}") && !password.isEmpty {
                             self.signedIn.toggle()
                         } else {
                             wrongCredentials = true
@@ -44,13 +59,13 @@ struct ContentView: View {
                     }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.black)
-                    .cornerRadius(8)
+                    .background(Color.init(red: 0, green: 0.3, blue: 0.8))
+                    .cornerRadius(10)
                     Image("JKU_logo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .scaleEffect(0.9)
-                        .padding(.top, 50)
+                        .scaleEffect(0.75)
+                        .frame(width: 350, height: 175)
                 }
                 .padding()
             }
@@ -62,12 +77,18 @@ struct ContentView: View {
                             NavigationLink {
                                 ListLearningSpaces(student: $student)
                             } label: {
-                                Text("Lernplatz buchen")
+                                HStack {
+                                    Image(systemName: "calendar.badge.plus")
+                                    Text("Lernplatz buchen")
+                                }
                             }
                             NavigationLink {
                                 ListBookings(student: $student)
                             } label: {
-                                Text("Gebuchte Lernplätze anzeigen")
+                                HStack {
+                                    Image(systemName: "calendar.badge.clock")
+                                    Text("Gebuchte Lernplätze anzeigen")
+                                }
                             }
                         }
                         Section ("Sonstiges") {
@@ -97,7 +118,7 @@ struct ContentView: View {
                                                     content.body = "Deine Buchung des Lernplatzes \(booking.learningSpace.name) im Gebäude \(booking.learningSpace.building) startet in 5 Minuten."
                                                     content.sound = UNNotificationSound.default
                                                     let notificationMoment = booking.from - 5 * 60
-                                                    let calenderDate = Calendar.current.dateComponents([.day, .year, .month, .hour, .minute, .second], from: notificationMoment)
+                                                    let calenderDate = Calendar.current.dateComponents([.day, .year, .month, .hour, .minute], from: notificationMoment)
                                                     let trigger = UNCalendarNotificationTrigger(dateMatching: calenderDate, repeats: false)
 
                                                     let request = UNNotificationRequest(identifier: booking.learningSpace.UUID, content: content, trigger: trigger)
@@ -117,7 +138,7 @@ struct ContentView: View {
                             .font(.body)
                     }
                     Divider()
-                    Text("Version 1.0.4")
+                    Text("Version 1.2.1")
                         .font(.footnote)
                 }.navigationTitle("Startseite")
             }
@@ -126,6 +147,24 @@ struct ContentView: View {
     
     func matches(string: String, regex: String) -> Bool {
             return string.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
+    }
+}
+        
+extension ContentView {
+    private enum Field: Int, CaseIterable {
+        case name, password
+    }
+    
+    private func focusPreviousField() {
+        focusedField = focusedField.map {
+            Field(rawValue: $0.rawValue - 1) ?? .name
+            }
+        }
+
+    private func focusNextField() {
+        focusedField = focusedField.map {
+            Field(rawValue: $0.rawValue + 1) ?? .password
+        }
     }
 }
 
