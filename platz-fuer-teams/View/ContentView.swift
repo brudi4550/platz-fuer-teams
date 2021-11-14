@@ -14,8 +14,8 @@ struct ContentView: View {
     @FocusState private var focusedField: Field?
     @State private var signedIn: Bool = false
     @State private var student: Student = Student(bookings: [])
+    @State private var allowNotifications = false
     @State private var wrongCredentials: Bool = false
-    @State private var allowNotifications: Bool = false
     
     var body: some View {
         if !signedIn {
@@ -47,7 +47,7 @@ struct ContentView: View {
                         }
                     }
                     Button("LOGIN") {
-                        if matches(string: name, regex: "[Kk][0-9]{8}|[Aa][Kk][0-9]{8}") && !password.isEmpty {
+                        if matches(string: name, regex: "[Aa][Kk][0-9]{8}$|[Kk][0-9]{8}$") && !password.isEmpty {
                             self.signedIn.toggle()
                         } else {
                             wrongCredentials = true
@@ -75,7 +75,7 @@ struct ContentView: View {
                     List {
                         Section("Allgemein") {
                             NavigationLink {
-                                ListLearningSpaces(student: $student)
+                                ListLearningSpaces(student: $student, allowNotifications: $allowNotifications)
                             } label: {
                                 HStack {
                                     Image(systemName: "calendar.badge.plus")
@@ -93,44 +93,29 @@ struct ContentView: View {
                         }
                         Section ("Sonstiges") {
                             NavigationLink {
-                                Text("test")
+                                SettingsView(student: $student, allowNotifications: $allowNotifications)
                             } label: {
-                                Text("Hilfe")
+                                HStack {
+                                    Image(systemName: "gearshape")
+                                    Text("Einstellungen")
+                                }
                             }
                             NavigationLink {
-                                Text("test")
+                                HelpView()
                             } label: {
-                                Text("Informationen")
-                            }
-                        }
-                        Group {
-                            Toggle("Push-Benachrichtigungen erlauben", isOn: $allowNotifications)
-                                .onChange(of: allowNotifications) { _allowNotifications in
-                                    if !_allowNotifications {
-                                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                                    } else {
-                                        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                                            if success {
-                                                for booking in student.bookings {
-                                                    let content = UNMutableNotificationContent()
-                                                    content.title = "Platz für Teams"
-                                                    content.subtitle = "Reservierungserinnerung"
-                                                    content.body = "Deine Buchung des Lernplatzes \(booking.learningSpace.name) im Gebäude \(booking.learningSpace.building) startet in 5 Minuten."
-                                                    content.sound = UNNotificationSound.default
-                                                    let notificationMoment = booking.from - 5 * 60
-                                                    let calenderDate = Calendar.current.dateComponents([.day, .year, .month, .hour, .minute], from: notificationMoment)
-                                                    let trigger = UNCalendarNotificationTrigger(dateMatching: calenderDate, repeats: false)
-
-                                                    let request = UNNotificationRequest(identifier: booking.learningSpace.UUID, content: content, trigger: trigger)
-
-                                                    UNUserNotificationCenter.current().add(request)
-                                                }
-                                            } else if let error = error {
-                                                print(error.localizedDescription)
-                                            }
-                                        }
-                                    }
+                                HStack {
+                                    Image(systemName: "questionmark.circle")
+                                    Text("Hilfe")
                                 }
+                            }
+                            NavigationLink {
+                                InformationView()
+                            } label: {
+                                HStack {
+                                    Image(systemName: "info.circle")
+                                    Text("Informationen")
+                                }
+                            }
                         }
                     }
                     HStack() {
@@ -146,7 +131,7 @@ struct ContentView: View {
     }
     
     func matches(string: String, regex: String) -> Bool {
-            return string.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
+        return string.range(of: regex, options: .regularExpression) != nil
     }
 }
         

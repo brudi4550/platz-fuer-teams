@@ -32,7 +32,7 @@ struct ListBookings: View {
                             HStack {
                                 booking.learningSpace.image
                                     .resizable()
-                                    .frame(width: 50, height: 50)
+                                    .frame(width: 100, height: 100)
                                     .cornerRadius(10)
                                 VStack (alignment: .leading) {
                                     Text("\(booking.learningSpace.name)")

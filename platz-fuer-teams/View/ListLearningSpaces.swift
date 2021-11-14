@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListLearningSpaces: View {
     @Binding var student: Student
+    @Binding var allowNotifications: Bool
     @State private var searchText: String = ""
     @State private var minSpaces: Int = 0
     
@@ -32,7 +33,7 @@ struct ListLearningSpaces: View {
             }
             List(searchResults) { learningSpace in
                 NavigationLink {
-                    DetailLearningSpace(learningSpace: learningSpace, student: $student)
+                    DetailLearningSpace(learningSpace: learningSpace, student: $student, allowNotifications: $allowNotifications)
                 } label: {
                     RowLearningSpace(learningSpace: learningSpace)
                 }
@@ -67,7 +68,8 @@ struct ListLearningSpaces: View {
 
 struct ListLearningSpaces_Previews: PreviewProvider {
     @State private static var student: Student = Student(bookings: [])
+    @State private static var allowNotifications = true
     static var previews: some View {
-        ListLearningSpaces(student: $student)
+        ListLearningSpaces(student: $student, allowNotifications: $allowNotifications)
     }
 }

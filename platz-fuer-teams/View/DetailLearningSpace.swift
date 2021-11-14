@@ -11,6 +11,7 @@ import UserNotifications
 struct DetailLearningSpace: View {
     var learningSpace: LearningSpace
     @Binding var student: Student
+    @Binding var allowNotifications: Bool
     @State private var from: Date = Date.now
     @State private var to: Date = Date.now.addingTimeInterval(3600)
     @State private var showingSuccessfulAlert: Bool = false
@@ -83,18 +84,27 @@ struct DetailLearningSpace: View {
                             let booking = Booking(learningSpace: learningSpace, from: from, to: to)
                             student.addBooking(booking: booking)
                             showingSuccessfulAlert = true
-                            let content = UNMutableNotificationContent()
-                            content.title = "Platz für Teams"
-                            content.subtitle = "Reservierungserinnerung"
-                            content.body = "Deine Buchung des Lernplatzes \(learningSpace.name) im Gebäude \(learningSpace.building) startet in 5 Minuten."
-                            content.sound = UNNotificationSound.default
-                            let notificationMoment = from - 5 * 60
-                            let calenderDate = Calendar.current.dateComponents([.day, .year, .month, .hour, .minute, .second], from: notificationMoment)
-                            let trigger = UNCalendarNotificationTrigger(dateMatching: calenderDate, repeats: false)
+                            if allowNotifications {
+                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                                    if success {
+                                        let content = UNMutableNotificationContent()
+                                        content.title = "Platz für Teams"
+                                        content.subtitle = "Reservierungserinnerung"
+                                        let time = String(format: "%.f", student.notificationTime)
+                                        content.body = "Deine Buchung des Lernplatzes \(learningSpace.name) im Gebäude \(learningSpace.building) startet in \(time) Minuten."
+                                        content.sound = UNNotificationSound.default
+                                        let notificationMoment = from - student.notificationTime * 60
+                                        let calenderDate = Calendar.current.dateComponents([.day, .year, .month, .hour, .minute, .second], from: notificationMoment)
+                                        let trigger = UNCalendarNotificationTrigger(dateMatching: calenderDate, repeats: false)
 
-                            let request = UNNotificationRequest(identifier: learningSpace.UUID, content: content, trigger: trigger)
+                                        let request = UNNotificationRequest(identifier: learningSpace.UUID, content: content, trigger: trigger)
 
-                            UNUserNotificationCenter.current().add(request)
+                                        UNUserNotificationCenter.current().add(request)
+                                    } else if let error = error {
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                            }
                         }
                     }.alert("Lernplatz erfolgreich gebucht!", isPresented: $showingSuccessfulAlert) {
                         Button("OK", role: .cancel) {}
@@ -122,7 +132,8 @@ struct DetailLearningSpace: View {
 
 struct DetailLearningSpace_Previews: PreviewProvider {
     @State static private var student = Student(bookings: [])
+    @State static private var allowNotifications = true
     static var previews: some View {
-        DetailLearningSpace(learningSpace: learningSpaces[0], student: $student)
+        DetailLearningSpace(learningSpace: learningSpaces[0], student: $student, allowNotifications: $allowNotifications)
     }
 }

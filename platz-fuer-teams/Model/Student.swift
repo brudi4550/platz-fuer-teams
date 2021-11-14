@@ -9,6 +9,7 @@ import Foundation
 
 struct Student {
     var bookings: [Booking]
+    var notificationTime: Double = 5.0
     
     mutating func addBooking(booking: Booking) -> () {
         bookings.append(booking)
