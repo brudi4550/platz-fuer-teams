@@ -33,8 +33,8 @@
         "building": "Science Park 1",
         "nrOfSeats": 16,
         "coordinates": {
-            "longitude": 14.32350,
-            "latitude": 48.33563
+            "longitude": 14.323232,
+            "latitude": 48.336065
         },
         "imageName": "sciencepark2_1"
     },
@@ -128,5 +128,70 @@
             "latitude": 48.33715
         },
         "imageName": "bankgebaeude_3"
+    },
+    {
+        "UUID": "lernplatz11",
+        "id": 16,
+        "name": "4. Stock Tisch 2",
+        "occupied": false,
+        "building": "Learning Center",
+        "nrOfSeats": 2,
+        "coordinates": {
+            "longitude": 14.320984,
+            "latitude": 48.338015
+        },
+        "imageName": "learningcenter_1"
+    },
+    {
+        "UUID": "lernplatz12",
+        "id": 85,
+        "name": "4. Stock Tisch 3",
+        "occupied": false,
+        "building": "Learning Center",
+        "nrOfSeats": 2,
+        "coordinates": {
+            "longitude": 14.320984,
+            "latitude": 48.338015
+        },
+        "imageName": "learningcenter_2"
+    },
+    {
+        "UUID": "lernplatz13",
+        "id": 114,
+        "name": "4. Stock Box 1",
+        "occupied": false,
+        "building": "Learning Center",
+        "nrOfSeats": 4,
+        "coordinates": {
+            "longitude": 14.320984,
+            "latitude": 48.338015
+        },
+        "imageName": "learningcenter_3"
+    },
+    {
+        "UUID": "lernplatz14",
+        "id": 103,
+        "name": "4. Stock Box 2",
+        "occupied": false,
+        "building": "Learning Center",
+        "nrOfSeats": 4,
+        "coordinates": {
+            "longitude": 14.320984,
+            "latitude": 48.338015
+        },
+        "imageName": "learningcenter_4"
+    },
+    {
+        "UUID": "lernplatz15",
+        "id": 57,
+        "name": "1. Stock Tisch 7",
+        "occupied": false,
+        "building": "Keplergebäude",
+        "nrOfSeats": 4,
+        "coordinates": {
+            "longitude": 14.319630,
+            "latitude": 48.337718
+        },
+        "imageName": "keplergebaeude_1"
     }
 ]

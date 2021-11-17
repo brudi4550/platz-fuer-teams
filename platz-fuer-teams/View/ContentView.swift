@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         if !signedIn {
             ZStack {
-                LinearGradient(colors: [Color.init(red: 0, green: 0.4, blue: 0.93), Color.init(red: 0, green: 0.6, blue: 1)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
+                LinearGradient(colors: [Color.init(red: 0.2, green: 0.3, blue: 0.8), Color.init(red: 0, green: 0.65, blue: 1)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
                 VStack {
                     Text("Platz für Teams")
                         .font(.system(size: 40, weight: .bold))
@@ -46,21 +46,26 @@ struct ContentView: View {
                             }
                         }
                     }
-                    Button("LOGIN") {
+                    Button {
                         if matches(string: name, regex: "[Aa][Kk][0-9]{8}$|[Kk][0-9]{8}$") && !password.isEmpty {
                             self.signedIn.toggle()
                         } else {
                             wrongCredentials = true
                         }
+                    } label: {
+                        HStack {
+                            Text("LOGIN")
+                            Image(systemName: "chevron.forward.circle.fill")
+                        }
+                        .padding()
+                        .foregroundColor(Color.white)
+                        .background(Color.accentColor)
+                        .clipShape(RoundedRectangle(cornerRadius: 10.0))
                     }.alert("Falscher Benutzername oder Passwort.", isPresented: $wrongCredentials) {
                         Button("OK", role: .cancel) {
                             wrongCredentials = false
                         }
                     }
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.init(red: 0, green: 0.3, blue: 0.8))
-                    .cornerRadius(10)
                     Image("JKU_logo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)

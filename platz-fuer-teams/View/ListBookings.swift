@@ -10,6 +10,8 @@ import UserNotifications
 
 struct ListBookings: View {
     @Binding var student: Student
+    @State var selectedQuickTapItem: LearningSpace?
+    @State var selectedLongTapItem: LearningSpace?
     
     var body: some View {
         if student.bookings.isEmpty {
@@ -25,33 +27,53 @@ struct ListBookings: View {
                 }
                 List {
                     ForEach(student.bookings, id: \.self) { booking in
-                        NavigationLink {
-                            MapView(place: Place(coordinate: booking.learningSpace.locationCoordinate))
-                                .navigationTitle("Ort des Lernplatzes")
-                        } label: {
-                            HStack {
-                                booking.learningSpace.image
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                                    .cornerRadius(10)
-                                VStack (alignment: .leading) {
-                                    Text("\(booking.learningSpace.name)")
-                                    HStack {
-                                        Text("\(booking.learningSpace.building)")
-                                            .font(.footnote)
-                                        Text("ID: \(booking.learningSpace.id)")
-                                            .font(.footnote)
-                                    }
-                                    Text("Von:")
+                        HStack {
+                            booking.learningSpace.image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 100)
+                                .cornerRadius(10)
+                            VStack (alignment: .leading) {
+                                Text("\(booking.learningSpace.name)")
+                                HStack {
+                                    Text("\(booking.learningSpace.building)")
                                         .font(.footnote)
-                                    Text("\(getDate(booking.from))")
-                                    Text("Bis:")
+                                    Text("ID: \(booking.learningSpace.id)")
                                         .font(.footnote)
-                                    Text("\(getDate(booking.to))")
                                 }
-                                Spacer()
+                                Text("Von:")
+                                    .font(.footnote)
+                                Text("\(getDate(booking.from))")
+                                Text("Bis:")
+                                    .font(.footnote)
+                                Text("\(getDate(booking.to))")
                             }
+                            Spacer()
                         }
+                        .onTapGesture {
+                            self.selectedQuickTapItem = booking.learningSpace
+                        }
+                        .onLongPressGesture() {
+                            self.selectedLongTapItem = booking.learningSpace
+                        }
+                        .sheet(item: $selectedLongTapItem) { item in
+                            item.image
+                                .resizable()
+                                .scaledToFill()
+                                .clipShape(RoundedRectangle(cornerRadius: 5.0))
+                        }
+                        .background(
+                            NavigationLink(
+                                destination:
+                                        MapView(place:
+                                                    Place(coordinate: booking.learningSpace.locationCoordinate))
+                                    .navigationTitle("Ort des Lernplatzes"),
+                                tag: booking.learningSpace,
+                                selection: $selectedQuickTapItem) {
+                                        EmptyView()
+                                    }
+                                .buttonStyle(PlainButtonStyle())
+                        )
                     }
                     .onDelete(perform: delete)
                 }

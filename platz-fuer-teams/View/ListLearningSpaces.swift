@@ -12,6 +12,8 @@ struct ListLearningSpaces: View {
     @Binding var allowNotifications: Bool
     @State private var searchText: String = ""
     @State private var minSpaces: Int = 0
+    @State var selectedLongTapItem: LearningSpace?
+    @State var selectedQuickTapItem: LearningSpace?
     
     var body: some View {
         VStack {
@@ -32,11 +34,25 @@ struct ListLearningSpaces: View {
                 }
             }
             List(searchResults) { learningSpace in
-                NavigationLink {
-                    DetailLearningSpace(learningSpace: learningSpace, student: $student, allowNotifications: $allowNotifications)
-                } label: {
-                    RowLearningSpace(learningSpace: learningSpace)
-                }
+                RowLearningSpace(learningSpace: learningSpace)
+                    .onTapGesture {
+                        self.selectedQuickTapItem = learningSpace
+                    }
+                    .onLongPressGesture() {
+                        self.selectedLongTapItem = learningSpace
+                    }
+                    .sheet(item: $selectedLongTapItem) { item in
+                        item.image
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(RoundedRectangle(cornerRadius: 5.0))
+                    }
+                    .background(
+                        NavigationLink(destination: DetailLearningSpace(learningSpace: learningSpace, student: $student, allowNotifications: $allowNotifications), tag: learningSpace,
+                            selection: $selectedQuickTapItem)
+                                { EmptyView() }
+                                .buttonStyle(PlainButtonStyle())
+                    )
             }
             .navigationTitle("Freie Lernplätze")
             .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))

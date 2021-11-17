@@ -11,11 +11,9 @@
 		3EE6003C272CDC420038691C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE6003B272CDC420038691C /* ContentView.swift */; };
 		3EE6003E272CDC450038691C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EE6003D272CDC450038691C /* Assets.xcassets */; };
 		3EE60041272CDC450038691C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EE60040272CDC450038691C /* Preview Assets.xcassets */; };
-		3EE6004A272CE17C0038691C /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE60049272CE17B0038691C /* MainScreen.swift */; };
 		FA1AA72B273AEA9D00F97169 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA72A273AEA9D00F97169 /* Student.swift */; };
 		FA1AA72D273AEAD600F97169 /* LearningSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA72C273AEAD600F97169 /* LearningSpace.swift */; };
 		FA1AA72F273AEB5A00F97169 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA72E273AEB5A00F97169 /* Booking.swift */; };
-		FA1AA746273AEEB600F97169 /* silversalmoncreek@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA739273AEEB600F97169 /* silversalmoncreek@2x.jpg */; };
 		FA1AA74D273AEEB600F97169 /* learningSpaceData.json in Resources */ = {isa = PBXBuildFile; fileRef = FA1AA740273AEEB600F97169 /* learningSpaceData.json */; };
 		FA1AA74F273AF02700F97169 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA74E273AF02700F97169 /* ModelData.swift */; };
 		FA1AA751273AFD0200F97169 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AA750273AFD0200F97169 /* CircleImage.swift */; };
@@ -35,11 +33,9 @@
 		3EE6003B272CDC420038691C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3EE6003D272CDC450038691C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EE60040272CDC450038691C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3EE60049272CE17B0038691C /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		FA1AA72A273AEA9D00F97169 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		FA1AA72C273AEAD600F97169 /* LearningSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningSpace.swift; sourceTree = "<group>"; };
 		FA1AA72E273AEB5A00F97169 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
-		FA1AA739273AEEB600F97169 /* silversalmoncreek@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "silversalmoncreek@2x.jpg"; sourceTree = "<group>"; };
 		FA1AA740273AEEB600F97169 /* learningSpaceData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = learningSpaceData.json; sourceTree = "<group>"; };
 		FA1AA74E273AF02700F97169 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		FA1AA750273AFD0200F97169 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
@@ -116,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				3EE6003B272CDC420038691C /* ContentView.swift */,
-				3EE60049272CE17B0038691C /* MainScreen.swift */,
 				FA1AA750273AFD0200F97169 /* CircleImage.swift */,
 				FA1AA752273AFD8500F97169 /* MapView.swift */,
 				FA1AA754273AFE1100F97169 /* DetailLearningSpace.swift */,
@@ -133,18 +128,9 @@
 		FA1AA731273AEEB600F97169 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FA1AA734273AEEB600F97169 /* Images */,
 				FA1AA740273AEEB600F97169 /* learningSpaceData.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		FA1AA734273AEEB600F97169 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				FA1AA739273AEEB600F97169 /* silversalmoncreek@2x.jpg */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +191,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA1AA746273AEEB600F97169 /* silversalmoncreek@2x.jpg in Resources */,
 				3EE60041272CDC450038691C /* Preview Assets.xcassets in Resources */,
 				FA1AA74D273AEEB600F97169 /* learningSpaceData.json in Resources */,
 				3EE6003E272CDC450038691C /* Assets.xcassets in Resources */,
@@ -220,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2B1FC92741017E00D52213 /* InformationView.swift in Sources */,
-				3EE6004A272CE17C0038691C /* MainScreen.swift in Sources */,
 				FA1AA751273AFD0200F97169 /* CircleImage.swift in Sources */,
 				FA1AA72F273AEB5A00F97169 /* Booking.swift in Sources */,
 				FA2B1FC72740FD3C00D52213 /* HelpView.swift in Sources */,

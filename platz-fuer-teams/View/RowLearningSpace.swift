@@ -14,6 +14,7 @@ struct RowLearningSpace: View {
         HStack {
             learningSpace.image
                 .resizable()
+                .scaledToFill()
                 .frame(width: 50, height: 50)
                 .cornerRadius(10)
             VStack (alignment: .leading) {
