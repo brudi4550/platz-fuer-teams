@@ -31,7 +31,7 @@
 		3EE60036272CDC420038691C /* platz-fuer-teams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "platz-fuer-teams.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE60039272CDC420038691C /* platz_fuer_teamsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = platz_fuer_teamsApp.swift; sourceTree = "<group>"; };
 		3EE6003B272CDC420038691C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3EE6003D272CDC450038691C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3EE6003D272CDC450038691C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "platz-fuer-teams/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		3EE60040272CDC450038691C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA1AA72A273AEA9D00F97169 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		FA1AA72C273AEAD600F97169 /* LearningSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningSpace.swift; sourceTree = "<group>"; };
@@ -346,6 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"platz-fuer-teams/Preview Content\"";
@@ -377,6 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"platz-fuer-teams/Preview Content\"";

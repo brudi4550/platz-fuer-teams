@@ -20,11 +20,13 @@ struct ContentView: View {
     var body: some View {
         if !signedIn {
             ZStack {
-                LinearGradient(colors: [Color.init(red: 0.2, green: 0.3, blue: 0.8), Color.init(red: 0, green: 0.65, blue: 1)], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
+                Color(red: 225/255, green: 229/255, blue: 238/255)
+                    .ignoresSafeArea()
                 VStack {
-                    Text("Platz für Teams")
-                        .font(.system(size: 40, weight: .bold))
-                        .foregroundColor(Color.black)
+                    Image("logo_fullsize")
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                        .scaledToFit()
                     VStack {
                         TextField("Benutzername", text: $name)
                             .textFieldStyle(.roundedBorder)
@@ -38,11 +40,13 @@ struct ContentView: View {
                         ToolbarItem(placement: .keyboard) {
                             Button(action: focusPreviousField) {
                                 Image(systemName: "chevron.up")
+                                    .foregroundColor(Color.blue)
                             }
                         }
                         ToolbarItem(placement: .keyboard) {
                             Button(action: focusNextField) {
                                 Image(systemName: "chevron.down")
+                                    .foregroundColor(Color.blue)
                             }
                         }
                     }
@@ -59,7 +63,7 @@ struct ContentView: View {
                         }
                         .padding()
                         .foregroundColor(Color.white)
-                        .background(Color.accentColor)
+                        .background(Color(red: 67/255, green: 149/255, blue: 156/255))
                         .clipShape(RoundedRectangle(cornerRadius: 10.0))
                     }.alert("Falscher Benutzername oder Passwort.", isPresented: $wrongCredentials) {
                         Button("OK", role: .cancel) {
